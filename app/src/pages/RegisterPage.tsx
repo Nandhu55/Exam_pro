@@ -99,9 +99,8 @@ export function RegisterPage() {
 
     if (result.success) {
       toast.success('Account created successfully!');
-      setTimeout(() => {
-        window.location.href = '/dashboard';
-      }, 500);
+      // Client-side navigation keeps auth state without a full reload
+      navigate('/dashboard');
     } else {
       toast.error(result.error || 'Registration failed');
     }

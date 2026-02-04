@@ -37,10 +37,8 @@ export function LoginPage() {
 
     if (result.success) {
       toast.success('Welcome back!');
-      // Navigate will be handled by auth context
-      setTimeout(() => {
-        window.location.href = '/dashboard';
-      }, 500);
+      // Client-side navigation keeps auth state without a full reload
+      navigate('/dashboard');
     } else {
       toast.error(result.error || 'Login failed');
     }
